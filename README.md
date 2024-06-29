@@ -48,15 +48,15 @@ For frontend dependencies: `cd client npm install`
    - PRODUCT_PER_PAGE = `8 or any`
 
    *For frontend*
-   - VITE_FIREBASE_KEY = AIzaSyDXwzNOgjHUQ_0hEUB9lEKZoHkdt5SGUuk
-   - VITE_AUTH_DOMAIN = mern-ecommerce-2024-4bf12.firebaseapp.com
-   - VITE_PROJECT_ID = mern-ecommerce-2024-4bf12
-   - VITE_STORAGE_BUCKET = mern-ecommerce-2024-4bf12.appspot.com
-   - VITE_MESSAGING_SENDER_ID = 987482514129
-   - VITE_APP_ID = 1:987482514129:web:32d343165eb065cd691bf0
-   - VITE_MEASUREMENT_ID = G-66S5EC7J2R
-   - VITE_SERVER = https://ecommerce24-server.onrender.com
-   - VITE_STRIPE_KEY = pk_test_51PQdbsP9WNCCsrGIIXfgNRejkRvDdLQVBaCsnMBxZlMN4o7J7zLMgHIl3RZnmuUacmi1OLRxoaT6vfidSUGDr5Ew00p3yTzzkT
+   - VITE_FIREBASE_KEY = `from firebase`
+   - VITE_AUTH_DOMAIN = `from firebase`
+   - VITE_PROJECT_ID = `from firebase`
+   - VITE_STORAGE_BUCKET = `from firebase`
+   - VITE_MESSAGING_SENDER_ID = `from firebase`
+   - VITE_APP_ID = `from firebase`
+   - VITE_MEASUREMENT_ID = `from firebase`
+   - VITE_SERVER = `Your Backend Server URL`
+   - VITE_STRIPE_KEY = `Stripe Publishable Key`
 
 - **Run the development server**:
 For backend: `cd server npm run dev`
