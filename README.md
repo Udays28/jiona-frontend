@@ -31,19 +31,19 @@ This project is a full-fledged eCommerce application built using the MERN stack 
 
 ## Installation
 
- - **Clone the repository**: 
-For backend: `git clone https://github.com/Dhruv1420/Ecommerce24-Server.git`
+ - **Clone the repository**: <Br />
+For backend: `git clone https://github.com/Dhruv1420/Ecommerce24-Server.git`<Br />
 For frontend: `git clone https://github.com/Dhruv1420/Ecommerce24-Client.git`
 
- - **Install Dependencies**: 
-For backend dependencies: `cd server npm install`
+ - **Install Dependencies**: <Br />
+For backend dependencies: `cd server npm install`<Br />
 For frontend dependencies: `cd client npm install`
 
- - **Set up Environment Variables**: Make sure to create a `.env` file in the `server` directory and add appropriate variabels in order to use the app:
+ - **Set up Environment Variables**: Make sure to create a `.env` file in the `server` directory and add appropriate variables to use the app:
 
     *For Backend*
    - PORT = `3000 or any`
-   - MONGO_URL = `mongodb://localhost:27017 or cloud uri`
+   - MONGO_URI = `mongodb://localhost:27017 or cloud uri`
    - STRIPE_KEY = `stripe secret key` 
    - PRODUCT_PER_PAGE = `8 or any`
 
@@ -58,16 +58,16 @@ For frontend dependencies: `cd client npm install`
    - VITE_SERVER = `Your Backend Server URL`
    - VITE_STRIPE_KEY = `Stripe Publishable Key`
 
-- **Run the development server**:
-For backend: `cd server npm run dev`
+- **Run the development server**:<Br />
+For backend: `cd server npm run dev`<Br />
 For frontend: 	`cd client npm start`
 
 - Open your browser and navigate to `http://localhost:3000` (Change Port if it is other than 3000).
 
 ## Social Handles
  
-**Instagram** Click [Here](https://www.instagram.com/a_d_1420/) 
-**Github** Click [Here](https://github.com/Dhruv1420)
+**Instagram** Click [Here](https://www.instagram.com/a_d_1420/) <Br />
+**Github** Click [Here](https://github.com/Dhruv1420)<Br />
 **LinkedIn** Click [Here](https://www.linkedin.com/in/dhruv1420/)
 
 ## Contact
