@@ -12,6 +12,7 @@ import { RootState, server } from "../../../redux/store";
 import { Order, OrderItem } from "../../../types/types";
 import { responseToast } from "../../../utils/features";
 
+
 const defaultData: Order = {
   shippingInfo: {
     address: "",
@@ -96,6 +97,9 @@ const TransactionManagement = () => {
                   _id={i._id}
                   quantity={i.quantity}
                   price={i.price}
+                  description={i.description}
+                  size={i.size}
+                  color={i.color}
                 />
               ))}
             </section>

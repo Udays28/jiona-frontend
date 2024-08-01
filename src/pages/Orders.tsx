@@ -6,7 +6,7 @@ import { Column } from "react-table";
 import { SkeletonLoader } from "../components/Loader";
 import TableHOC from "../components/admin/TableHOC";
 import { useMyOrdersQuery } from "../redux/api/orderAPI";
-import { RootState } from "../redux/store";
+import { RootState, server } from "../redux/store";
 import { CustomError } from "../types/apiTypes";
 
 type DataType = {
@@ -16,12 +16,22 @@ type DataType = {
   discount: number;
   status: ReactElement;
   action: ReactElement;
+  name: string;
+  photo: ReactElement;
 };
 
 const column: Column<DataType>[] = [
   {
     Header: "ID",
     accessor: "_id",
+  },
+  {
+    Header: "Name",
+    accessor: "name",
+  },
+  {
+    Header: "Photo",
+    accessor: "photo",
   },
   {
     Header: "Quantity",
@@ -65,6 +75,16 @@ const Orders = () => {
           amount: i.total,
           quantity: i.orderItems.length,
           discount: i.discount,
+          name: i.orderItems[0].name,
+          photo: (
+            <img
+              style={{
+                height: "3rem",
+                width: "3rem",
+              }}
+              src={`${server}/${i.orderItems[0].photo}`}
+            />
+          ),
           status: (
             <span
               className={

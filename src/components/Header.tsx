@@ -2,21 +2,20 @@ import { signOut } from "firebase/auth";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import {
+  FaBars,
   FaSearch,
   FaShoppingBag,
   FaSignInAlt,
   FaSignOutAlt,
   FaUser,
-  FaBars,
 } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import logoImage from '../assets/images/IMG_20240721_123859.png';
 import { auth } from "../firebase";
+import { useCategoriesQuery } from "../redux/api/productAPI";
 import { CartReducerInitialState } from "../types/reducerTypes";
 import { User } from "../types/types";
-import { MdOutlineAlternateEmail } from "react-icons/md";
-import { useCategoriesQuery } from "../redux/api/productAPI";
-import logoImage from '../assets/images/IMG_20240721_123859.png';
 
 interface PropsType {
   user: User | null;

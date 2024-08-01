@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { SkeletonLoader } from "../components/Loader";
 import ProductCard from "../components/ProductCard";
 import { useSearchProductsQuery } from "../redux/api/productAPI";
 import { addToCart } from "../redux/reducer/cartReducer";
 import { RootState } from "../redux/store";
-import { CartItem } from "../types/types";
-import { SkeletonLoader } from "../components/Loader";
 import { CustomError } from "../types/apiTypes";
+import { CartItem } from "../types/types";
 
 const CategoryPage = () => {
   const { category } = useParams<{ category: string }>();

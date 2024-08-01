@@ -1,12 +1,11 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { useProductDetailsQuery } from '../redux/api/productAPI';
-import { RootState, server } from '../redux/store';
-import { addToCart } from '../redux/reducer/cartReducer';
+import { toast } from 'react-hot-toast';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
-import { toast } from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useProductDetailsQuery } from '../redux/api/productAPI';
+import { addToCart } from '../redux/reducer/cartReducer';
+import { RootState, server } from '../redux/store';
 
 const ProductDetails = () => {
   const { user } = useSelector((state: RootState) => state.userReducer);
