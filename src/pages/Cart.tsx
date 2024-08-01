@@ -95,7 +95,7 @@ const Cart = () => {
             Discount: <em> - £{discount}</em>
           </p>
           <p>
-            <b>Total: £{total}</b>
+            <b>Total: £{total.toFixed(2)}</b>
           </p>
         </div>
 
