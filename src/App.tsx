@@ -1,4 +1,4 @@
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { Suspense, lazy, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,16 +10,20 @@ import { auth } from "./firebase";
 import { getUser } from "./redux/api/userAPI";
 import { userExist, userNotExist } from "./redux/reducer/userReducer";
 import { RootState } from "./redux/store";
+import Footer from "./components/Footer";
 
 const Home = lazy(() => import("./pages/Home"));
 const Cart = lazy(() => import("./pages/Cart"));
 const Search = lazy(() => import("./pages/Search"));
+const ProductDetails = lazy(() => import("./pages/ProductDetails"));
 const Shipping = lazy(() => import("./pages/Shipping"));
 const Orders = lazy(() => import("./pages/Orders"));
 const OrderDetails = lazy(() => import("./pages/OrderDetails"));
 const Login = lazy(() => import("./pages/Login"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Checkout = lazy(() => import("./pages/Checkout"));
+const Contact = lazy(() => import("./pages/Contact"));
+const About = lazy(() => import("./pages/About"));
 
 /* Admin Routes Importing */
 const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
@@ -35,6 +39,8 @@ const GenerateCoupon = lazy(() => import("./pages/admin/Apps/Coupon"));
 const Toss = lazy(() => import("./pages/admin/Apps/Toss"));
 const NewProduct = lazy(() => import("./pages/admin/Management/NewProduct"));
 const NewCoupon = lazy(() => import("./pages/admin/Management/NewCoupon"));
+const CategoryPage = lazy(() => import("./pages/CategoryPage"));
+
 const ProductManagement = lazy(
   () => import("./pages/admin/Management/ProductManagement")
 );
@@ -68,6 +74,9 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
 
           {/* Not logged In Route */}
           <Route
@@ -87,6 +96,7 @@ const App = () => {
             <Route path="/orders" element={<Orders />} />
             <Route path="/order/:id" element={<OrderDetails />} />
             <Route path="/pay" element={<Checkout />} />
+            <Route path="/category/:category" element={<CategoryPage />} />
           </Route>
 
           <Route
@@ -130,6 +140,7 @@ const App = () => {
         </Routes>
       </Suspense>
       <Toaster position="bottom-center" />
+      < Footer/ >
     </Router>
   );
 };

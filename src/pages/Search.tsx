@@ -123,14 +123,18 @@ const Search = () => {
           <div className="searchProductList">
             {searchedData?.products.map((i) => (
               <ProductCard
-                key={i._id}
-                productId={i._id}
-                name={i.name}
-                price={i.price}
-                stock={i.stock}
-                handler={addToCartHandler}
-                photo={i.photo}
-              />
+              key={i._id}
+              productId={i._id}
+              name={i.name}
+              price={i.price}
+              stock={i.stock}
+              handler={addToCartHandler}
+              photo={i.photo}
+              description={i.description}  // New field
+              size={i.size}                // New field
+              color={i.color}              // New field
+            />
+            
             ))}
           </div>
         )}

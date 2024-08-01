@@ -1,0 +1,26 @@
+.slider-container {
+    width: 100%;
+    margin: auto;
+    
+    overflow: hidden;
+  
+    .slick-prev, .slick-next {
+      color: black;
+      &:before {
+        font-size: 30px;
+      }
+    }
+  
+    .slick-dots {
+      bottom: -30px;
+      li button:before {
+        color: black;
+      }
+    }
+  
+    img {
+      width: 100%;
+      object-fit:fill;
+    }
+  }
+  

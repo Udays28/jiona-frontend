@@ -16,23 +16,24 @@ const CartItemCard = ({
   decrementHandler,
   removeHandler,
 }: CartItemProps) => {
-  const { photo, productId, name, price, quantity } = cartItem;
+  const { photo, productId, name, price, quantity, size, color } = cartItem;
 
   return (
     <div className="cartItem">
       <img src={`${server}/${photo}`} alt={name} />
       <article>
-        <Link to={`/product/${productId}`}>{name}</Link>
-        <span>₹{price}</span>
+        <Link to={`/product/${productId}`} className="product-link">{name}</Link>
+        <p className="details">{size} / {color}</p>
+        <span className="price">£{price}</span>
       </article>
 
-      <div>
+      <div className="quantity-controls">
         <button onClick={() => decrementHandler(cartItem)}>-</button>
         <p>{quantity}</p>
         <button onClick={() => incrementHandler(cartItem)}>+</button>
       </div>
 
-      <button onClick={() => removeHandler(productId)}>
+      <button onClick={() => removeHandler(productId)} className="remove-button">
         <FaTrash />
       </button>
     </div>

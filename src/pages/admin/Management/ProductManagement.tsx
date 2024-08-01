@@ -20,13 +20,16 @@ const ProductManagement = () => {
 
   const { data, isLoading, isError } = useProductDetailsQuery(params.id!);
 
-  const { name, category, photo, price, stock } = data?.product || {
+  const { name, category, photo, price, stock, description, size, color } = data?.product || {
     _id: "",
     name: "",
     category: "",
     photo: "",
     price: 0,
     stock: 0,
+    description: "",
+    size: "",
+    color: "",
   };
 
   const [nameUpdate, setNameUpdate] = useState<string>(name);
@@ -35,6 +38,9 @@ const ProductManagement = () => {
   const [stockUpdate, setStockUpdate] = useState<number>(stock);
   const [photoUpdate, setPhotoUpdate] = useState<string>("");
   const [photoFile, setPhotoFile] = useState<File>();
+  const [descriptionUpdate, setDescriptionUpdate] = useState<string>(description);
+  const [sizeUpdate, setSizeUpdate] = useState<string>(size);
+  const [colorUpdate, setColorUpdate] = useState<string>(color);
 
   const [updateProduct] = useUpdateProductMutation();
   const [deleteProduct] = useDeleteProductMutation();
@@ -61,10 +67,12 @@ const ProductManagement = () => {
 
     if (nameUpdate) formData.set("name", nameUpdate);
     if (priceUpdate) formData.set("price", priceUpdate.toString());
-    if (stockUpdate !== undefined)
-      formData.set("stock", stockUpdate.toString());
+    if (stockUpdate !== undefined) formData.set("stock", stockUpdate.toString());
     if (photoFile) formData.set("photo", photoFile);
     if (categoryUpdate) formData.set("category", categoryUpdate);
+    if (descriptionUpdate) formData.set("description", descriptionUpdate);
+    if (sizeUpdate) formData.set("size", sizeUpdate);
+    if (colorUpdate) formData.set("color", colorUpdate);
 
     const res = await updateProduct({
       formData,
@@ -90,6 +98,9 @@ const ProductManagement = () => {
       setPriceUpdate(data.product.price);
       setStockUpdate(data.product.stock);
       setCategoryUpdate(data.product.category);
+      setDescriptionUpdate(data.product.description);
+      setSizeUpdate(data.product.size);
+      setColorUpdate(data.product.color);
     }
   }, [data]);
 
@@ -159,6 +170,35 @@ const ProductManagement = () => {
                     placeholder="eg. laptop, camera etc"
                     value={categoryUpdate}
                     onChange={(e) => setCategoryUpdate(e.target.value)}
+                  />
+                </div>
+
+                <div>
+                  <label>Description</label>
+                  <textarea
+                    placeholder="Description"
+                    value={descriptionUpdate}
+                    onChange={(e) => setDescriptionUpdate(e.target.value)}
+                  ></textarea>
+                </div>
+
+                <div>
+                  <label>Size</label>
+                  <input
+                    type="text"
+                    placeholder="Size"
+                    value={sizeUpdate}
+                    onChange={(e) => setSizeUpdate(e.target.value)}
+                  />
+                </div>
+
+                <div>
+                  <label>Color</label>
+                  <input
+                    type="text"
+                    placeholder="Color"
+                    value={colorUpdate}
+                    onChange={(e) => setColorUpdate(e.target.value)}
                   />
                 </div>
 

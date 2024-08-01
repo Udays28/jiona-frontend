@@ -60,7 +60,7 @@ const AdminSidebar = () => {
         }
       >
         <Link to={"/"}>
-          <h2>APNI DUKAN</h2>
+          <h2>Jiona Fashion</h2>
         </Link>
         <DivOne location={location} />
         <DivTwo location={location} />

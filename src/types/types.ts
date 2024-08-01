@@ -15,7 +15,11 @@ export type Product = {
   stock: number;
   category: string;
   _id: string;
+  description: string; 
+  size: string;        
+  color: string;       
 };
+
 
 export type Coupon = {
   code: string;
@@ -38,7 +42,11 @@ export type CartItem = {
   price: number;
   quantity: number;
   stock: number;
+  description: string; 
+  size: string;        
+  color: string;       
 };
+
 
 export type OrderItem = Omit<CartItem, "stock"> & { _id: string };
 

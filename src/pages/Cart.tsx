@@ -83,39 +83,46 @@ const Cart = () => {
             />
           ))
         ) : (
-          <h1>No Items Added</h1>
+          <h1 className="empty-cart">No Items Added</h1>
         )}
       </main>
       <aside>
-        <p>Subtotal: ₹{subtotal}</p>
-        <p>Shipping Charges: ₹{shippingCharges}</p>
-        <p>Tax: ₹{tax}</p>
-        <p>
-          Discount: <em> - ₹{discount}</em>
-        </p>
-        <p>
-          <b>Total: ₹{total}</b>
-        </p>
+        <div className="summary">
+          <p>Subtotal: £{subtotal}</p>
+          <p>Shipping Charges: £{shippingCharges}</p>
+          <p>Tax: £{tax}</p>
+          <p>
+            Discount: <em> - £{discount}</em>
+          </p>
+          <p>
+            <b>Total: £{total}</b>
+          </p>
+        </div>
 
         <input
           type="text"
           value={couponCode}
-          placeholder="Coupon Code"
+          placeholder="Enter Coupon Code"
           onChange={(e) => setCouponCode(e.target.value)}
         />
 
-        {couponCode &&
-          (isValidcouponCode ? (
-            <span className="green">
-              ₹{discount} off using the <code>{couponCode}</code>
-            </span>
-          ) : (
-            <span className="red">
-              Invalid Coupon <VscError />
-            </span>
-          ))}
+        {couponCode && (
+          <div className={`coupon-status ${isValidcouponCode ? 'valid' : 'invalid'}`}>
+            {isValidcouponCode ? (
+              <span className="success">
+                £{discount} off using the <code>{couponCode}</code>
+              </span>
+            ) : (
+              <span className="error">
+                Invalid Coupon <VscError />
+              </span>
+            )}
+          </div>
+        )}
 
-        {cartItems.length > 0 && <Link to={"/shipping"}>Checkout</Link>}
+        {cartItems.length > 0 && (
+          <Link to="/shipping" className="checkout-button">Proceed to Checkout</Link>
+        )}
       </aside>
     </div>
   );

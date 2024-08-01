@@ -16,6 +16,9 @@ const NewProduct = () => {
   const [photo, setPhoto] = useState<File>();
   const [photoPrev, setPhotoPrev] = useState<string>();
   const [category, setCategory] = useState<string>();
+  const [description, setDescription] = useState<string>(""); // New state
+  const [size, setSize] = useState<string>("");              // New state
+  const [color, setColor] = useState<string>("");            // New state
 
   const [newProduct] = useNewProductMutation();
   const navigate = useNavigate();
@@ -38,7 +41,7 @@ const NewProduct = () => {
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!name || !price || stock! < 0 || !photo || !category)
+    if (!name || !price || stock! < 0 || !photo || !category || !description || !size || !color)
       return toast.error("Please Add All Fields");
 
     const formData = new FormData();
@@ -48,6 +51,9 @@ const NewProduct = () => {
     formData.set("category", category);
     formData.set("stock", stock?.toString() || "0");
     formData.set("photo", photo);
+    formData.set("description", description);  // New field
+    formData.set("size", size);                // New field
+    formData.set("color", color);              // New field
 
     const res = await newProduct({ id: user?._id as string, formData });
 
@@ -99,6 +105,35 @@ const NewProduct = () => {
                 placeholder="eg. laptop, camera etc"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label>Description</label>
+              <textarea
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              ></textarea>
+            </div>
+
+            <div>
+              <label>Size</label>
+              <input
+                type="text"
+                placeholder="Size"
+                value={size}
+                onChange={(e) => setSize(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label>Color</label>
+              <input
+                type="text"
+                placeholder="Color"
+                value={color}
+                onChange={(e) => setColor(e.target.value)}
               />
             </div>
 

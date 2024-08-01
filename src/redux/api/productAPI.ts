@@ -30,10 +30,7 @@ export const productAPI = createApi({
       query: () => "categories",
       providesTags: ["product"],
     }),
-    searchProducts: builder.query<
-      SearchProductsResponse,
-      SearchProductsRequest
-    >({
+    searchProducts: builder.query<SearchProductsResponse,SearchProductsRequest>({
       query: ({ price, search, sort, category, page }) => {
         let base = `all?search=${search}&page=${page}`;
 
@@ -65,6 +62,11 @@ export const productAPI = createApi({
       }),
       invalidatesTags: ["product"],
     }),
+    productsByCategory: builder.query<ProductsResponse, string>({
+      query: (category) => `all?category=${category}`,
+      providesTags: ["product"],
+    }),
+    
     deleteProduct: builder.mutation<MessageResponse, DeleteProductRequest>({
       query: ({ userId, productId }) => ({
         url: `${productId}?id=${userId}`,
@@ -84,4 +86,5 @@ export const {
   useProductDetailsQuery,
   useUpdateProductMutation,
   useDeleteProductMutation,
+  useProductsByCategoryQuery,
 } = productAPI;
