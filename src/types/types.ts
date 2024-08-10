@@ -28,6 +28,7 @@ export type Coupon = {
 };
 
 export type ShippingInfo = {
+  phoneNumber: string;
   address: string;
   city: string;
   state: string;

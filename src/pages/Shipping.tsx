@@ -15,6 +15,7 @@ const Shipping = () => {
   const dispatch = useDispatch();
 
   const [shippingInfo, setShippingInfo] = useState({
+    phoneNumber: "",
     address: "",
     city: "",
     state: "",
@@ -64,6 +65,14 @@ const Shipping = () => {
 
       <form onSubmit={submitHandler}>
         <h1>Shipping Address</h1>
+        <input
+          required
+          type="text"
+          placeholder="Phone Number"
+          name="phoneNumber"
+          value={shippingInfo.phoneNumber}
+          onChange={changeHandler}
+        />
 
         <input
           required
