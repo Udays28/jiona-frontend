@@ -1,27 +1,74 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import image1 from '../assets/images/second.jpeg';
+import image2 from '../assets/images/first.jpeg';
+
+const typingAnimation = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.05,
+    },
+  }),
+};
 
 const AboutUs: React.FC = () => {
+  const headerText = "About Us";
+  const contentText = [
+    "Welcome to our clothing e-commerce website. We are dedicated to providing you with the latest fashion trends, high-quality materials, and excellent customer service.",
+    "Our mission is to make you look and feel great in every piece of clothing you wear from our store.",
+    "Thank you for choosing us as your fashion destination."
+  ];
+
   return (
-    <div className="container">
+    <motion.div
+      className="aboutUsContainer"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
       <motion.div
         className="header"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial="hidden"
+        animate="visible"
       >
-        <h1>About Us</h1>
+        <h1>
+          {headerText.split("").map((char, index) => (
+            <motion.span
+              key={index}
+              custom={index}
+              variants={typingAnimation}
+              className="letter"
+            >
+              {char}
+            </motion.span>
+          ))}
+        </h1>
       </motion.div>
+      
       <motion.div
         className="content"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        initial="hidden"
+        animate="visible"
       >
-        <p>Welcome to our clothing e-commerce website. We are dedicated to providing you with the latest fashion trends, high-quality materials, and excellent customer service.</p>
-        <p>Our mission is to make you look and feel great in every piece of clothing you wear from our store.</p>
-        <p>Thank you for choosing us as your fashion destination.</p>
+        {contentText.map((sentence, idx) => (
+          <p key={idx}>
+            {sentence.split("").map((char, index) => (
+              <motion.span
+                key={index}
+                custom={index + idx * 100} // Staggering each sentence
+                variants={typingAnimation}
+                className="letter"
+              >
+                {char}
+              </motion.span>
+            ))}
+          </p>
+        ))}
       </motion.div>
+      
       <motion.div
         className="team"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -30,21 +77,25 @@ const AboutUs: React.FC = () => {
       >
         <h2>Meet the Team</h2>
         <div className="teamMembers">
-          <div className="member">
-            <img src="path/to/image1.jpg" alt="Team Member 1" />
-            <p>John Doe - CEO</p>
-          </div>
-          <div className="member">
-            <img src="path/to/image2.jpg" alt="Team Member 2" />
-            <p>Jane Smith - Designer</p>
-          </div>
-          <div className="member">
-            <img src="path/to/image3.jpg" alt="Team Member 3" />
-            <p>Emily Johnson - Marketing</p>
-          </div>
+          <motion.div
+            className="member"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+          >
+            <img src={image2} alt="Mariamma George (Jolly George)" />
+            <p>Mariamma George (Jolly George)</p>
+          </motion.div>
+          <motion.div
+            className="member"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+          >
+            <img src={image1} alt="Georgekutty Varghese" />
+            <p>Georgekutty Varghese</p>
+          </motion.div>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -11,6 +11,7 @@ const initialState: CartReducerInitialState = {
   total: 0,
   discount: 0,
   shippingInfo: {
+    phoneNumber: "",
     address: "",
     city: "",
     state: "",

@@ -14,16 +14,7 @@ const ContactPage: React.FC = () => {
           <p>Phone: 00447909707271
 </p>
         </div>
-        {/* <div className="contact-card">
-          <h2>Technical Support</h2>
-          <p>Email: techsupport@example.com</p>
-          <p>Phone: (123) 456-7891</p>
-        </div>
-        <div className="contact-card">
-          <h2>Sales Inquiries</h2>
-          <p>Email: sales@example.com</p>
-          <p>Phone: (123) 456-7892</p>
-        </div> */}
+        
       </div>
       <form className="contact-form">
         <div className="form-group">
