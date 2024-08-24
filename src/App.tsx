@@ -6,6 +6,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Loader from "./components/Loader";
+import AddToCart from "./components/AddToCart";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { auth } from "./firebase";
 import { getUser } from "./redux/api/userAPI";
@@ -77,12 +78,13 @@ const App = () => {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/About" element={<About />} />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
 
           {/* Not logged In Route */}
           <Route
             path="/login"
             element={
-              <ProtectedRoute isAuthenticated={user ? false : true}>
+              <ProtectedRoute  isAuthenticated={user ? false : true}>
                 <Login />
               </ProtectedRoute>
             }
@@ -90,13 +92,13 @@ const App = () => {
 
           {/* Logged In User Routes */}
           <Route
-            element={<ProtectedRoute isAuthenticated={user ? true : false} />}
+            element={<ProtectedRoute redirect="/login" isAuthenticated={user ? true : false} />}
           >
             <Route path="/shipping" element={<Shipping />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/order/:id" element={<OrderDetails />} />
             <Route path="/pay" element={<Checkout />} />
-            <Route path="/category/:category" element={<CategoryPage />} />
+            
           </Route>
 
           <Route
@@ -140,6 +142,7 @@ const App = () => {
         </Routes>
       </Suspense>
       <Toaster position="bottom-center" />
+      <AddToCart /> {/* Add to Cart Modal */}
       < Footer/ >
     </Router>
   );

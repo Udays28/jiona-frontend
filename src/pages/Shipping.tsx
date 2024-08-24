@@ -113,8 +113,8 @@ const Shipping = () => {
 
         <input
           required
-          type="number"
-          placeholder="Pin Code"
+          type="text"
+          placeholder="Post Code"
           name="pinCode"
           value={shippingInfo.pinCode}
           onChange={changeHandler}

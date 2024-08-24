@@ -12,19 +12,19 @@ const Footer: React.FC = () => {
         <div className="footer__section">
           <h4>Contact</h4>
           <p>Email: contact@jionafashion.com</p>
-          <p>Phone: 00447909707271</p>
+          <p>Phone: +447909707271</p>
         </div>
         <div className="footer__section">
           <h4>Follow Us</h4>
           <div className="footer__social">
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=61564455922989&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://youtube.com/@jionafashion9678?si=yco-t5qxFyO3-J5t" target="_blank" rel="noopener noreferrer">Youtube</a>
+            <a href="https://www.instagram.com/jionafashion?utm_source=qr&igsh=aG10ZmhjNzg4Z3Ji" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
         </div>
       </div>
       <div className="footer__bottom">
-        <p>&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Jiona Fashion. All rights reserved.</p>
       </div>
     </footer>
   );

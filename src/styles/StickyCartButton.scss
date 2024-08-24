@@ -1,0 +1,32 @@
+.stickyButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff6f61;
+    color: white;
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #ff4c39;
+    }
+  
+    .cartBadge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #fff;
+      color: #ff6f61;
+      border-radius: 50%;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+  

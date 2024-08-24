@@ -32,7 +32,7 @@ const ProductDetails = () => {
       <div className="product-details__info">
         <h1 className="product-details__title">{name}</h1>
         <p className="product-details__category">Category: {category}</p>
-        <p className="product-details__price">Price: ${price}</p>
+        <p className="product-details__price">Price: £{price}</p>
         <p className="product-details__stock">Stock: {stock}</p>
         <p className="product-details__description">Description: {description}</p>
         <p className="product-details__size">Size: {size}</p>

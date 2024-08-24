@@ -43,18 +43,20 @@ const Header = ({ user }: PropsType) => {
         <div className="logo">
           <img src={logoImage} alt="Logo" />
         </div>
+        
         <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+    
           <FaBars />
         </div>
         <nav className={`nav ${menuOpen ? 'nav-open' : ''}`}>
           <Link onClick={() => setMenuOpen(false)} to="/">Home</Link>
           <Link onClick={() => setMenuOpen(false)} to="/about">About</Link>
           <Link onClick={() => setMenuOpen(false)} to="/contact">Contact</Link>
-          <Link onClick={() => setMenuOpen(false)} to="/search"><FaSearch /></Link>
+          <Link onClick={() => setMenuOpen(false)} to="/search"><FaSearch />Search</Link>
           <Link onClick={() => setMenuOpen(false)} to="/cart">
             <FaShoppingBag />
             {cartItems.length > 0 && <div className="cartQuantity">{cartItems.length}</div>}
-          </Link>
+             Cart</Link>
           {user?._id ? (
             <>
               <button onClick={() => setIsOpen((prev) => !prev)}><FaUser /></button>
